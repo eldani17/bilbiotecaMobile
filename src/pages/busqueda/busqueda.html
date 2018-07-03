@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="principal">
+    <img class="logoMenu" src="assets/imgs/logouni.png" alt="">
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="refrescarLista($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown"
+      pullingText="Estire para actualizar"
+      refreshingSpinner="circles"
+      refreshingText="Actualizando..."></ion-refresher-content>
+  </ion-refresher>
+  <h2 text-center>Lista de Libros</h2>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-9>
+        <ion-list>
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="busqueda" placeholder="ingrese una palabra"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button (click)="buscarEnApi()" color="principal">Buscar</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list>
+    <ion-item ion-item *ngFor="let libro of listalibros" (click)="detalleLibro(libro)">
+        <ion-avatar item-start>
+          <img src="{{libro.foto}}">
+        </ion-avatar>
+        <h2>{{libro.titulo}}</h2>
+        <p>{{libro.isbn}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-navbar color="principal">
+    <ion-title text-center>Detalle del Libro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+
+    <ion-item>
+      <h2>{{libro.titulo}}</h2>
+      <p>{{autores}}</p>
+    </ion-item>
+
+    <img src="{{libro.foto}}"/>
+
+    <ion-item>
+      <p>Isbn: {{libro.isbn}}</p>
+      <p>Idioma: {{libro.idioma.nombre}}</p>
+      <p>Categorias: {{categorias}}</p>
+      <p>Editorial: {{libro.editorial}}</p>
+      <p>Edición: {{libro.edicion}}</p>
+    </ion-item>
+
+    <ion-card-content>
+      <p>
+        {{libro.descripcion}}
+      </p>
+    </ion-card-content>
+
+    <ion-row no-padding>
+
+      <ion-col>
+        <button *ngIf="esFavorito" ion-button clear small color="danger" icon-start (click)="eliminarFavorito(libro)">
+          <ion-icon name='ios-heart'></ion-icon>
+          Eliminar de favoritos
+        </button>
+        <button *ngIf="esFavorito == false" ion-button clear small color="danger" icon-start (click)="agregarFavorito(libro)">
+          <ion-icon name='ios-heart-outline'></ion-icon>
+          Agregar a favoritos
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+  <button ion-button block color="principal" (click)="cerrarDetalle()">Cerrar</button>
+</ion-content>

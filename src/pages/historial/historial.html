@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar color="principal">
+    <img class="logoMenu" src="assets/imgs/logouni.png" alt="">
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2 text-left color="principal">Mis busquedas</h2>
+
+  <ion-list>
+    <ion-item ion-item *ngFor="let h of historial">
+      <h2>{{h}}</h2>
+    </ion-item>
+  </ion-list>
+</ion-content>
